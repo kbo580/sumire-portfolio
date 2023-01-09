@@ -1,0 +1,381 @@
+@charset "UTF-8";
+*{
+  box-sizing: border-box;
+}
+
+@function rem($px){
+  @return ($px/16) *1rem;
+}
+
+$headingColor: #4D4D4F;
+$textColor: #58595B;
+
+body,h1,h2,h3,h4,h5,p,ul,li,ol,dl,dt,dd,figure,input,textarea {
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+  list-style: none;
+  outline:0;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+body {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: rem(14);
+  color: $textColor;
+  position: relative;
+}
+
+a { 
+  color: inherit;
+  text-decoration: none;
+}
+
+img{
+  max-width:100%;
+  vertical-align: bottom;
+}
+
+
+header,main,section,footer, div, ul, li, h1,h2,h3,dl,dt,dd{
+  // background-color: rgba(0,200,100,0.1);
+  // border: 1px solid rgba(0,0,0,0.1);
+}
+
+.inner{
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  // background-color: rgba(241,92,168,0.2);
+  padding: 0 4%;
+}
+
+.fw--l{
+  font-family: "futura-pt", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.fw--b{
+  font-family: "futura-pt", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.fw--m{
+  font-family: "futura-pt", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+main{
+  padding-top: 100px;
+}
+
+/* Hover Event */
+@media (hover: hover){
+
+}
+
+/* -------------------------------------------- */
+/* header */
+/* -------------------------------------------- */
+.header{
+  width: 100%;
+  position: fixed;
+  display: flex;
+  height: 100px;
+  color: #333132;
+
+  &__wrap{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 20px;
+    border: 1px solid #000;
+    position: relative;
+  }
+}
+
+.site-title{
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: rem(24);
+  letter-spacing: 0.2em;
+}
+
+//スマホ用ヘッダー
+.sp-header__right{
+  width: 40%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.94);
+  background: #000;
+  border: 1px solid #000;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  right: -200%;
+  // right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all .4s;
+  z-index: 2;
+  overflow: hidden;
+
+  &.active{
+    right: 0;
+  }
+}
+
+//pc用ヘッダー
+.pc-header__right{
+  display: none;
+}
+
+/* ハンバーガーメニュー */
+.burger{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* ハンバーガーメニューのバー */
+.bar{
+  width: 100%;
+  height: 3px;
+  background-color: #333132;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,0);
+  transition: all .5s;
+}
+    
+.bar:nth-of-type(1){
+  transform:translate(-50%,10px);
+}
+
+.bar:nth-of-type(3){
+  transform:translate(-50%,-10px);
+}
+
+/* バーガーメニューにactiveクラスが着いた時 */
+.burger.active .bar:nth-of-type(2){
+  opacity: 0;
+}
+
+.burger.active .bar:nth-of-type(1){
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.burger.active .bar:nth-of-type(3){
+  transform:  translateX(-50%) rotate(45deg);
+}
+
+@media (min-width: 765px) {
+
+  .burger{
+    display: none;
+  }
+
+  //sp用ヘッダー
+  .sp-header__right{
+    display: none;
+  }
+
+  //pc用ヘッダー
+  .pc-header__right{
+    display: flex;
+    align-items: center;
+  }
+
+
+}
+
+/* -------------------------------------------- */
+/* nav */
+/* -------------------------------------------- */
+.nav{
+  font-size: rem(20);
+}
+
+//sp用ナビ
+.sp-header-nav{
+  
+  &__item{
+    margin-top: 20px;
+  }
+}
+
+//pc用ナビ
+.pc-header-nav{
+
+  &__list{
+    display: flex;
+  }
+
+  &__item{
+    margin-left: 25px;
+  }
+}
+
+//インスタアイコン
+.insta{
+  width: 26px;
+  height: 26px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+//pc用ヘッダー内のインスタアイコン
+.pc-header__insta{
+  margin-left: 25px;
+  margin-top: 0;
+}
+
+
+
+
+/* -------------------------------------------- */
+/* gallery */
+/* -------------------------------------------- */
+.gallery{
+  &__wrap{
+
+  }
+}
+
+.card-list{
+
+  &__image{
+    
+  }
+
+  &__title{
+    font-size: 20px;
+    margin-top: 10px;
+    color: $headingColor;
+    color: red;
+  }
+  
+  &__desc{
+    margin-top: 10px;
+    color: rgb(153, 153, 153);
+  } 
+  
+  &__info{
+    margin-top: 10px;
+    color: rgb(204, 204, 204);
+    font-size: 14px;
+  }
+
+  &__date{
+
+  }
+
+  &__technique{
+
+  }
+
+  &__size{
+
+  }
+}
+
+@media (min-width: 765px) {
+
+
+}
+
+/* -------------------------------------------- */
+/* philosophy */
+/* -------------------------------------------- */
+.philosophy{
+  margin-top: 60px;
+
+  &__wrap{
+
+  }
+
+  &__heading{
+
+  }
+
+  &__desc{
+    margin-top: 16px;
+    line-height: 2;
+  }
+}
+
+@media (min-width: 765px) {
+
+
+}
+
+/* -------------------------------------------- */
+/* footer */
+/* -------------------------------------------- */
+.footer{
+  background-color: #160E0E;
+  color: #ffffff;
+  margin-top: 60px;
+
+  &__wrap{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    // border: 1px solid #fc2;
+  }
+
+  &__heading{
+    text-transform: uppercase;
+  }
+
+  &__body{
+    margin-top: 10px;
+  }
+  
+  &__left,
+  &__center,
+  &__right{
+    // border: 1px solid #fff;
+    width: 33%;
+  }
+
+  &__left{
+
+  }
+
+  &__center{
+
+  }
+
+  &__right{
+
+  }
+}
+
+@media (min-width: 765px) {
+
+
+}
+
+/* -------------------------------------------- */
+/*  */
+/* -------------------------------------------- */
+
+
+@media (min-width: 765px) {
+
+
+}
