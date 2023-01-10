@@ -16,13 +16,39 @@ body, h1, h2, h3, h4, h5, p, ul, li, ol, dl, dt, dd, figure, input, textarea {
   border-radius: 0;
 }
 
-body {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 0.875rem;
-  color: #58595B;
-  position: relative;
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: none;
+}
+
+input[type=submit],
+input[type=button],
+label,
+button,
+select {
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
 }
 
 a {
@@ -33,6 +59,15 @@ a {
 img {
   max-width: 100%;
   vertical-align: bottom;
+}
+
+body {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 0.875rem;
+  color: #58595B;
+  position: relative;
 }
 
 .inner {
@@ -64,6 +99,11 @@ main {
   padding-top: 100px;
 }
 
+@media (min-width: 765px) {
+  main {
+    padding-top: 150px;
+  }
+}
 /* Hover Event */
 /* -------------------------------------------- */
 /* header */
@@ -76,6 +116,7 @@ main {
   display: flex;
   height: 100px;
   color: #333132;
+  background-color: rgba(255, 255, 255, 0.94);
 }
 .header__wrap {
   width: 100%;
@@ -89,7 +130,6 @@ main {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 30px 20px;
-  border: 1px solid #000;
   position: relative;
 }
 
@@ -104,8 +144,6 @@ main {
   width: 40%;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.94);
-  background: #000;
-  border: 1px solid #000;
   text-align: center;
   position: fixed;
   top: 0;
@@ -182,6 +220,9 @@ main {
 }
 
 @media (min-width: 765px) {
+  .header {
+    height: 150px;
+  }
   .burger {
     display: none;
   }
@@ -205,7 +246,7 @@ main {
 }
 
 .sp-header-nav__item {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .pc-header-nav__list {
@@ -233,20 +274,44 @@ main {
 /* -------------------------------------------- */
 /* gallery */
 /* -------------------------------------------- */
+.gallery__wrap {
+  margin-top: -50px;
+}
+
+.card-list {
+  margin-top: 50px;
+  width: 100%;
+}
 .card-list__title {
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 1.25rem;
   color: #4D4D4F;
-  color: red;
 }
 .card-list__desc {
-  margin-top: 10px;
-  color: rgb(153, 153, 153);
+  font-size: 16;
 }
 .card-list__info {
+  font-size: 0.875rem;
+}
+.card-list--mt {
   margin-top: 10px;
-  color: rgb(204, 204, 204);
-  font-size: 14px;
+}
+
+@media (min-width: 765px) {
+  .gallery__wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: -80px;
+  }
+  .card-list {
+    margin-top: 80px;
+    width: calc((100% - 120px) / 3);
+  }
 }
 /* -------------------------------------------- */
 /* philosophy */
@@ -254,9 +319,15 @@ main {
 .philosophy {
   margin-top: 60px;
 }
+.philosophy__heading {
+  font-size: 1.6875rem;
+  color: #4D4D4F;
+}
 .philosophy__desc {
-  margin-top: 16px;
+  font-size: 1.0625rem;
+  letter-spacing: 0.006em;
   line-height: 2;
+  margin-top: 16px;
 }
 
 /* -------------------------------------------- */
@@ -270,18 +341,116 @@ main {
 .footer__wrap {
   padding-top: 60px;
   padding-bottom: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 .footer__heading {
-  text-transform: uppercase;
+  color: #4D4D4F;
+  letter-spacing: 0.15em;
 }
-.footer__body {
-  margin-top: 10px;
+
+.getInTouch__list {
+  margin-top: 20px;
 }
-.footer__left, .footer__center, .footer__right {
-  width: 33%;
+.getInTouch__text {
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+.getInTouch__sns {
+  margin-top: 12px;
+}
+.getInTouch__icon {
+  width: 18px;
+  margin-right: 12px;
+}
+
+.contact {
+  margin-top: 40px;
+}
+
+.formParts input[type=text],
+.formParts input[type=email],
+.formParts textarea {
+  background: inherit;
+  border: 1px solid #ffffff;
+  width: 100%;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-top: 20px;
+  letter-spacing: 0.03em;
+}
+.formParts input[type=text]::-webkit-input-placeholder, .formParts input[type=email]::-webkit-input-placeholder, .formParts textarea::-webkit-input-placeholder {
+  color: #ffffff;
+}
+.formParts input[type=text]::-moz-placeholder, .formParts input[type=email]::-moz-placeholder, .formParts textarea::-moz-placeholder {
+  color: #ffffff;
+}
+.formParts input[type=text]:-ms-input-placeholder, .formParts input[type=email]:-ms-input-placeholder, .formParts textarea:-ms-input-placeholder {
+  color: #ffffff;
+}
+.formParts input[type=text]::-ms-input-placeholder, .formParts input[type=email]::-ms-input-placeholder, .formParts textarea::-ms-input-placeholder {
+  color: #ffffff;
+}
+.formParts input[type=text]::placeholder,
+.formParts input[type=email]::placeholder,
+.formParts textarea::placeholder {
+  color: #ffffff;
+}
+.formParts textarea {
+  height: 90px;
+}
+.formParts input[type=submit] {
+  padding: 8px;
+  width: 100px;
+  background-color: #58595B;
+  color: #ffffff;
+  display: block;
+  margin-left: auto;
+  margin-top: 20px;
+  letter-spacing: 0.03em;
+}
+
+@media (min-width: 765px) {
+  .footer__wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .contact {
+    margin-top: 0;
+    margin-left: 90px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .contact__wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 20px;
+  }
+  .contact__left {
+    width: calc((100% - 40px) / 2);
+  }
+  .contact__center {
+    width: calc((100% - 40px) / 2);
+    margin-left: 20px;
+  }
+  .contact__center .formParts {
+    height: 100%;
+  }
+  .contact__center textarea {
+    height: 100%;
+  }
+  .contact__right {
+    margin-left: 20px;
+    margin-top: auto;
+  }
+  .formParts input[type=text],
+.formParts textarea,
+.formParts input[type=submit] {
+    margin-top: 0px;
+  }
 }
 /* -------------------------------------------- */
 /*  */

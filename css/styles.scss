@@ -3,12 +3,7 @@
   box-sizing: border-box;
 }
 
-@function rem($px){
-  @return ($px/16) *1rem;
-}
-
-$headingColor: #4D4D4F;
-$textColor: #58595B;
+//riset
 
 body,h1,h2,h3,h4,h5,p,ul,li,ol,dl,dt,dd,figure,input,textarea {
   margin: 0;
@@ -20,15 +15,41 @@ body,h1,h2,h3,h4,h5,p,ul,li,ol,dl,dt,dd,figure,input,textarea {
   -webkit-appearance: none;
   border-radius: 0;
 }
-
-body {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: rem(14);
-  color: $textColor;
-  position: relative;
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
 }
+
+textarea {
+  resize: vertical;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  display: none;
+}
+
+input[type='submit'],
+input[type='button'],
+label,
+button,
+select {
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
 
 a { 
   color: inherit;
@@ -40,20 +61,34 @@ img{
   vertical-align: bottom;
 }
 
-
-header,main,section,footer, div, ul, li, h1,h2,h3,dl,dt,dd{
-  // background-color: rgba(0,200,100,0.1);
-  // border: 1px solid rgba(0,0,0,0.1);
+//変数
+@function rem($px){
+  @return ($px/16) *1rem;
 }
 
+$headingColor: #4D4D4F;
+$textColor: #58595B;
+
+
+//共通
+body {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: rem(14);
+  color: $textColor;
+  position: relative;
+}
+
+//inner
 .inner{
   margin: 0 auto;
   max-width: 1200px;
   width: 100%;
-  // background-color: rgba(241,92,168,0.2);
   padding: 0 4%;
 }
 
+//フォント
 .fw--l{
   font-family: "futura-pt", sans-serif;
   font-weight: 300;
@@ -66,7 +101,6 @@ header,main,section,footer, div, ul, li, h1,h2,h3,dl,dt,dd{
   font-style: normal;
 }
 
-
 .fw--m{
   font-family: "futura-pt", sans-serif;
   font-weight: 500;
@@ -75,6 +109,13 @@ header,main,section,footer, div, ul, li, h1,h2,h3,dl,dt,dd{
 
 main{
   padding-top: 100px;
+}
+
+@media (min-width: 765px){
+  main{
+    padding-top: 150px;
+  }
+
 }
 
 /* Hover Event */
@@ -91,6 +132,7 @@ main{
   display: flex;
   height: 100px;
   color: #333132;
+  background-color: rgba(255, 255, 255, 0.94);
 
   &__wrap{
     width: 100%;
@@ -98,7 +140,6 @@ main{
     align-items: center;
     justify-content: space-between;
     padding: 30px 20px;
-    border: 1px solid #000;
     position: relative;
   }
 }
@@ -115,8 +156,6 @@ main{
   width: 40%;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.94);
-  background: #000;
-  border: 1px solid #000;
   text-align: center;
   position: fixed;
   top: 0;
@@ -182,6 +221,9 @@ main{
 }
 
 @media (min-width: 765px) {
+  .header{
+    height: 150px;
+  }
 
   .burger{
     display: none;
@@ -197,8 +239,6 @@ main{
     display: flex;
     align-items: center;
   }
-
-
 }
 
 /* -------------------------------------------- */
@@ -212,7 +252,7 @@ main{
 .sp-header-nav{
   
   &__item{
-    margin-top: 20px;
+    margin-top: 30px;
   }
 }
 
@@ -244,56 +284,53 @@ main{
 }
 
 
-
-
 /* -------------------------------------------- */
 /* gallery */
 /* -------------------------------------------- */
 .gallery{
   &__wrap{
-
+    margin-top: -50px;
   }
 }
 
+//ギャラリーのアイテム
 .card-list{
-
-  &__image{
-    
-  }
+  margin-top: 50px;
+  width: 100%;
 
   &__title{
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: rem(20);
     color: $headingColor;
-    color: red;
   }
   
   &__desc{
-    margin-top: 10px;
-    color: rgb(153, 153, 153);
+    font-size: (16);
   } 
   
   &__info{
+    font-size: rem(14);
+  }
+
+  &--mt{
     margin-top: 10px;
-    color: rgb(204, 204, 204);
-    font-size: 14px;
-  }
-
-  &__date{
-
-  }
-
-  &__technique{
-
-  }
-
-  &__size{
-
   }
 }
 
 @media (min-width: 765px) {
+  .gallery{
+    &__wrap{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: -80px;
+    }
+  }
 
+  //ギャラリーのアイテム
+  .card-list{
+    margin-top: 80px;
+    width: calc((100% - 120px) /3);
+  }
 
 }
 
@@ -308,12 +345,15 @@ main{
   }
 
   &__heading{
-
+    font-size: rem(27);
+    color: $headingColor;
   }
 
   &__desc{
-    margin-top: 16px;
+    font-size: rem(17);
+    letter-spacing: 0.006em;
     line-height: 2;
+    margin-top: 16px;
   }
 }
 
@@ -333,41 +373,134 @@ main{
   &__wrap{
     padding-top: 60px;
     padding-bottom: 60px;
-    display: flex;
-    // border: 1px solid #fc2;
   }
 
+  //見出し
   &__heading{
-    text-transform: uppercase;
-  }
-
-  &__body{
-    margin-top: 10px;
-  }
-  
-  &__left,
-  &__center,
-  &__right{
-    // border: 1px solid #fff;
-    width: 33%;
-  }
-
-  &__left{
-
-  }
-
-  &__center{
-
-  }
-
-  &__right{
-
+    color: $headingColor;
+    letter-spacing: 0.15em;
   }
 }
 
+//----- 連絡とSNS -----
+.getInTouch{
+  &__list{
+    margin-top: 20px;
+  }
+  
+  &__text{
+    font-size: rem(16);
+    letter-spacing: 0.03em;
+  }
+
+  &__sns{
+    margin-top: 12px;
+  }
+
+  //アイコン
+  &__icon{
+    width: 18px;
+    margin-right: 12px;
+  }
+}
+
+//----- お問い合わせ------
+.contact{
+  margin-top: 40px;
+}
+
+//フォーム部品
+.formParts{
+  input[type="text"],
+  input[type="email"],
+  textarea{
+    background: inherit;
+    border: 1px solid #ffffff;
+    width: 100%;
+    padding: 10px;
+    font-family: inherit;
+    font-size: rem(16);
+    color: #ffffff;
+    margin-top: 20px;
+    letter-spacing: 0.03em;
+
+    //プレイスホルダーの文字色
+    &::placeholder {
+      color: #ffffff;
+    }
+  }
+
+  textarea{
+    height: 90px;
+  }
+
+  //送信ボタン
+  input[type="submit"]{
+    padding: 8px;
+    width: 100px;
+    background-color: $textColor;
+    color: #ffffff;
+    display: block;
+    margin-left: auto;
+    margin-top: 20px;
+    letter-spacing: 0.03em;
+  }
+
+}
+
 @media (min-width: 765px) {
+  .footer{
+    &__wrap{
+      display: flex;
+    }
+  }
 
+  //----- お問い合わせ------
+  .contact{
+    margin-top: 0;
+    margin-left: 90px;
+    flex:1;
 
+    &__wrap{
+      display: flex;
+      margin-top: 20px;
+    }
+  
+    //左のカラム
+    &__left{
+      width: calc((100% - 40px)/2);
+    }
+  
+    //真ん中のカラム
+    &__center{
+      width: calc((100% - 40px)/2);
+      margin-left: 20px;
+
+      //フォーム部品
+      .formParts{
+        height: 100%;
+      }
+
+      textarea{
+        height: 100%;
+      }
+    }
+    
+    //右のカラム
+    &__right{
+      margin-left: 20px;
+      margin-top: auto;
+    }
+  }
+
+  //フォーム部品
+  .formParts{
+    input[type="text"],
+    textarea,
+    input[type="submit"]{
+      margin-top: 0px;
+    }
+  }
 }
 
 /* -------------------------------------------- */
