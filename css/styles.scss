@@ -118,11 +118,6 @@ main{
 
 }
 
-/* Hover Event */
-@media (hover: hover){
-
-}
-
 /* -------------------------------------------- */
 /* header */
 /* -------------------------------------------- */
@@ -133,6 +128,7 @@ main{
   height: 100px;
   color: #333132;
   background-color: rgba(255, 255, 255, 0.94);
+  z-index: 999;
 
   &__wrap{
     width: 100%;
@@ -299,10 +295,15 @@ main{
 .card-list{
   margin-top: 50px;
   width: 100%;
+  // border: 1px solid #000;
 
   &__title{
     font-size: rem(20);
     color: $headingColor;
+  }
+
+  &__image{
+
   }
   
   &__desc{
@@ -328,7 +329,7 @@ main{
 
       &::after{
         content: "";
-        width: calc((100% - 120px) /3);
+        // width: calc((100% - 120px) /3);
       }
     }
   }
@@ -336,8 +337,10 @@ main{
   //ギャラリーのアイテム
   .card-list{
     margin-top: 80px;
+
     width: calc((100% - 120px) /3);
   }
+
 
 }
 
@@ -413,6 +416,10 @@ main{
   }
 }
 
+.footer__link{
+  display: inline-block;
+}
+
 //----- お問い合わせ------
 .contact{
   margin-top: 40px;
@@ -447,7 +454,7 @@ main{
   input[type="submit"]{
     padding: 8px;
     width: 100px;
-    background-color: $textColor;
+    background-color: $headingColor;
     color: #ffffff;
     display: block;
     margin-left: auto;
@@ -602,5 +609,38 @@ main{
 
 @media (min-width: 765px) {
 
+
+}
+
+/* Hover Event */
+@media (hover: hover){
+  .nav__link,
+  .sp-header__insta,
+  .pc-header__insta,
+  .footer__link{
+    transition: transform .3s;
+    display: block;
+
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+
+  .formParts{
+    input[type="submit"]{
+      transition: background-color .3s;
+
+      &:hover{
+        background-color: #999999;
+      }
+    }
+  }
+
+  .card-list__image{
+    transition: filter .3s;
+    &:hover{
+      filter: brightness(88%);
+    }
+  }
 
 }

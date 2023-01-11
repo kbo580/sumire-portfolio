@@ -104,7 +104,6 @@ main {
     padding-top: 150px;
   }
 }
-/* Hover Event */
 /* -------------------------------------------- */
 /* header */
 /* -------------------------------------------- */
@@ -117,6 +116,7 @@ main {
   height: 100px;
   color: #333132;
   background-color: rgba(255, 255, 255, 0.94);
+  z-index: 999;
 }
 .header__wrap {
   width: 100%;
@@ -312,7 +312,6 @@ main {
   }
   .paintings__wrap::after {
     content: "";
-    width: calc((100% - 120px) / 3);
   }
   .card-list {
     margin-top: 80px;
@@ -373,6 +372,10 @@ main {
   margin-right: 12px;
 }
 
+.footer__link {
+  display: inline-block;
+}
+
 .contact {
   margin-top: 40px;
 }
@@ -413,7 +416,7 @@ main {
 .formParts input[type=submit] {
   padding: 8px;
   width: 100px;
-  background-color: #58595B;
+  background-color: #4D4D4F;
   color: #ffffff;
   display: block;
   margin-left: auto;
@@ -533,3 +536,40 @@ main {
 /* -------------------------------------------- */
 /*  */
 /* -------------------------------------------- */
+/* Hover Event */
+@media (hover: hover) {
+  .nav__link,
+.sp-header__insta,
+.pc-header__insta,
+.footer__link {
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
+    display: block;
+  }
+  .nav__link:hover,
+.sp-header__insta:hover,
+.pc-header__insta:hover,
+.footer__link:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  .formParts input[type=submit] {
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+  }
+  .formParts input[type=submit]:hover {
+    background-color: #999999;
+  }
+  .card-list__image {
+    -webkit-transition: -webkit-filter 0.3s;
+    transition: -webkit-filter 0.3s;
+    transition: filter 0.3s;
+    transition: filter 0.3s, -webkit-filter 0.3s;
+  }
+  .card-list__image:hover {
+    -webkit-filter: brightness(88%);
+            filter: brightness(88%);
+  }
+}
